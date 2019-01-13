@@ -1,0 +1,34 @@
+<ion-header>   
+  <ion-title>Currency Converter</ion-title>   
+</ion-header>
+<ion-content>
+
+    <ion-card>
+        <ion-list inset>
+            <ion-item>
+                <ion-label color="primary">INR</ion-label>
+                <ion-input [(ngModel)]="amountInINR" (input)="exchange(source)" type="number"></ion-input>
+            </ion-item>
+            <ion-item (click)="presentActionSheet()">
+                <ion-label color="primary" (click)="presentActionSheet()">{{ source }}</ion-label>
+                <ion-input [(ngModel)]="convertIn" type="number" [disabled]="true"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
+                <button (click)="exchange(source)" ion-button full>calculate</button>
+            </ion-item> -->
+        </ion-list>
+    </ion-card>
+
+    <ion-card>
+        <ion-list>
+            <ion-item>
+              Please select currency to be converted 
+            </ion-item>
+            <ion-item *ngFor="let output of outputs">
+                <ion-label color="primary" (click)="selectedCountry(output.name )">{{ output.name }}</ion-label>
+                <!-- <div item-content>{{ output.value | number:'1.2-2' }}</div>                 -->
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+</ion-content>
